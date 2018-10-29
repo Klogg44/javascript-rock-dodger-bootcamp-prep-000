@@ -123,6 +123,7 @@ function endGame() {
   clearInterval(gameInterval)
   for (i=0; i< ROCKS.length; i++) {
     ROCKS[i].remove()
+    rock.remove()
   }
   alert("YOU LOSE!")
 }
