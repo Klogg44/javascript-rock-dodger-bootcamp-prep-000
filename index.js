@@ -84,19 +84,7 @@ function createRock(x) {
      * If a rock collides with the DODGER,
      * we should call endGame()
      */
-    if (checkCollision(rock)) {
-      endGame()
-    } else if (top < GAME_HEIGHT) {
-      window.requestAnimationFrame(step)
-    } else {
-      rock.remove()
-      ROCKS.shift()
-    }
-
-    function step() {
-      rock.style.top = `${top += 6}px`
-    }
-
+     
     /**
      * Otherwise, if the rock hasn't reached the bottom of
      * the GAME, we want to move it again.
@@ -106,6 +94,23 @@ function createRock(x) {
      * But if the rock *has* reached the bottom of the GAME,
      * we should remove the rock from the DOM
      */
+
+    function step() {
+       rock.style.top = `${top += 6}px`
+     }
+      
+    if (checkCollision(rock)) {
+      endGame()
+    } else if (top < GAME_HEIGHT) {
+      window.requestAnimationFrame(step)
+    } else {
+      rock.remove()
+      ROCKS.shift()
+    }
+
+
+
+
     }
 
 
@@ -204,7 +209,6 @@ function start() {
   window.addEventListener('keydown', moveDodger)
 
   START.style.display = 'none'
-  //createRock(Math.floor(Math.random() *  (GAME_WIDTH - 20)))
   gameInterval = setInterval(function() {
     createRock(Math.floor(Math.random() *  (GAME_WIDTH - 20)))
   }, 1000)
