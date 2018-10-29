@@ -87,7 +87,8 @@ function createRock(x) {
     if (checkCollision(rock)) {
       endGame()
     }
-    function step () {
+    
+    function step() {
       rock.style.top = `${top += 6}px`
     }
     /**
