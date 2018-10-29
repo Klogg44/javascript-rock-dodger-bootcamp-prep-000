@@ -105,7 +105,6 @@ function createRock(x) {
       window.requestAnimationFrame(step)
     } else {
       rock.remove()
-      ROCKS.shift()
     }
   }
 
