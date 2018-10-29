@@ -124,7 +124,9 @@ function endGame() {
   for (i=0; i< ROCKS.length; i++) {
     ROCKS[i].remove()
   }
-  alert("YOU LOSE!")
+  //remove event listener
+  window.removeEventListener('keydown', moveDodger)
+  window.alert("YOU LOSE!")
 }
 
 function moveDodger(e) {
