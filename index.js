@@ -79,7 +79,7 @@ function createRock(x) {
    */
   function moveRock() {
     rock.style.top = `${top += 6}px`;
-    
+
     // implement me!
     // (use the comments below to guide you!)
     /**
@@ -106,7 +106,7 @@ function createRock(x) {
     } else {
       rock.remove()
     }
-    
+
   }
 
 
