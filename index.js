@@ -90,21 +90,21 @@ function createRock(x) {
 
     function step() {
       rock.style.top = `${top += 6}px`
+      if (top < GAME_HEIGHT) {
+        window.requestAnimationFrame(step)
+      }
     }
     /**
      * Otherwise, if the rock hasn't reached the bottom of
      * the GAME, we want to move it again.
      */
-    if (top < GAME_HEIGHT) {
-      window.requestAnimationFrame(step)
-    } else {
+
     /**
      * But if the rock *has* reached the bottom of the GAME,
      * we should remove the rock from the DOM
      */
-      rock.remove()
     }
-  }
+
 
   // We should kick of the animation of the rock around here
   window.requestAnimationFrame(step)
@@ -162,7 +162,6 @@ function moveDodgerLeft() {
   var leftDodgerEdge = positionToInteger(DODGER.style.left);
 
   function step () {
-    //console.log(leftDodgerEdge);
     if (leftDodgerEdge > 0) {
       DODGER.style.left = `${leftDodgerEdge - 4}px`
     }
