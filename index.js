@@ -87,13 +87,15 @@ function createRock(x) {
     if (checkCollision(rock)) {
       endGame()
     }
-
+    function step () {
+      rock.style.top = `${top += 6}px`
+    }
     /**
      * Otherwise, if the rock hasn't reached the bottom of
      * the GAME, we want to move it again.
      */
     if (top < GAME_HEIGHT) {
-      rock.style.top = `${top += 6}px`
+      window.requestAnimationFrame(step)
     } else {
     /**
      * But if the rock *has* reached the bottom of the GAME,
